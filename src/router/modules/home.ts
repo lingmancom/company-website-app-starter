@@ -8,7 +8,15 @@ export default <AppRouterRaw[]>[
       title: '工作台',
     },
     children: [
-
+      {
+        path: '/user',
+        name: 'user',
+        component: () => import('@/views/user/user.vue'),
+        icon: 'House',
+        meta: {
+          title: '用户列表',
+        },
+      },
       {
         path: '',
         name: 'home',
