@@ -1,0 +1,64 @@
+.star::before {
+    display: inline-block;
+    margin-right: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: "*";
+}
+
+:deep(.el-overlay .el-drawer) {
+    max-width: 320px !important;
+}
+
+:deep(.el-drawer__header) {
+    padding: 20px 16px;
+    font-size: 16px;
+}
+
+:deep(.el-drawer__close) {
+    font-size: 20px;
+}
+
+
+:deep(.el-input__suffix) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sub-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+}
+
+:deep(.avatar-uploader .el-upload) {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+:deep(.avatar-uploader .el-upload:hover) {
+    border-color: #409eff;
+}
+
+:deep(.avatar-uploader-icon) {
+    font-size: 28px;
+    color: #8c939d;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
