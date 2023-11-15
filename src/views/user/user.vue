@@ -21,24 +21,26 @@ function handleDelete(row) {
     loadData()
   }).catch(() => { })
 }
+
+function handelSwitchChange(row) {
+  Api.verifyUser({ userId: row.id }).then(() => {
+    ElMessage.success('操作成功')
+    loadData()
+  })
+}
 </script>
 
 <template>
   <div class="p-10">
     <el-table v-loading="loading" :data="tableData" stripe height="700" border>
-      <el-table-column prop="id" label="ID" width="300" />
-      <el-table-column prop="name" label="名称" width="400" />
-      <el-table-column prop="role" label="角色" width="100" />
+      <el-table-column prop="id" label="ID" width="300"></el-table-column>
+      <el-table-column prop="name" label="名称" width="400"></el-table-column>
+      <el-table-column prop="role" label="角色" width="100"></el-table-column>
       <el-table-column label="是否允许访问" align="center" width="110">
         <template #default="{ row }">
           <el-switch
-            v-model="row.enabled" @change="() => {
-              Api.verifyUser({ userId: row.id }).then(() => {
-                ElMessage.success('操作成功')
-                loadData()
-              })
-            }"
-          />
+            v-model="row.enabled" @change="handelSwitchChange(row)"
+          ></el-switch>
         </template>
       </el-table-column>
       <el-table-column v-slot="{ row }" label="操作">
