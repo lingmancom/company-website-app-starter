@@ -12,9 +12,7 @@ function logout() {
   appStore.clearToken()
   toLogin()
 }
-function toMy() {
-  router.push('/my')
-}
+const whiteRoles = [1, 2]
 </script>
 
 <template>
@@ -31,7 +29,7 @@ function toMy() {
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item v-if="userinfo?.role === 1" @click="router.push({ name: 'user' })">
+        <el-dropdown-item v-if="whiteRoles.includes(userinfo?.role || 0)" @click="router.push({ name: 'user' })">
           用户列表
         </el-dropdown-item>
         <el-dropdown-item @click="logout">

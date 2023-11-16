@@ -36,6 +36,18 @@ export const Api = {
   // 删除用户
   deleteUser: data => Post('/api/account/delete', data),
 
+  // 保存用户
+  saveUserName: data => Post('/api/account/edit_name', data),
+
+  // 保存用户
+  saveUserRole: data => Post('/api/account/edit_role', data),
+
+  // /api/project/project/save
+  saveProjectUser: data => Post('/api/project/project/save', data),
+
+  // /api/project/user/projects
+  getUserProjectList: data => Get('/api/project/user/projects', data),
+
   // /api/proc/list
   getProcList: data => Get('/api/proc/list', data),
 
