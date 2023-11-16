@@ -221,15 +221,15 @@ export function useCRUDVariable<T extends object>(options: CRUDOptions<T>) {
    * 请求分页设置
    */
   const requestPageSettings = reactive({
-    page_size: 20, // 每页请求数据
-    page_number: 1, // 页码
-    total_count: 0, // 总条数
+    pageSize: 20, // 每页请求数据
+    pageNumber: 1, // 页码
+    totalCount: 0, // 总条数
     q: '',
     ...options.requestPageSettings,
   })
 
   function handleCurrentChange(val: number) {
-    requestPageSettings.page_number = val
+    requestPageSettings.pageNumber = val
     loadData()
   }
 
@@ -250,7 +250,7 @@ export function useCRUDVariable<T extends object>(options: CRUDOptions<T>) {
     }
     else {
       tableData.value = res.data
-      requestPageSettings.total_count = res.total_count
+      requestPageSettings.totalCount = res.total_count
     }
     loading.value = false
   }
