@@ -91,7 +91,7 @@ watch(showVisible, (val) => {
       </el-table-column>
       <el-table-column label="项目数">
         <template #default="{ row }">
-          <el-tag v-for="i, idx in row.listProjects" :key="idx" class="mx-4">
+          <el-tag v-for="i, idx in row.listProjects" :key="idx" class="m-4">
             {{ i.name }}
           </el-tag>
         </template>
