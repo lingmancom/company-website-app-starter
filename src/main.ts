@@ -15,10 +15,14 @@ import * as ElIconModules from '@element-plus/icons-vue'
 // JSON美化工具
 import JsonViewer from 'vue-json-viewer'
 
+// @ts-expect-error xxxx
+import { registerSW } from 'virtual:pwa-register'
 import App from './App.vue'
 
 // 引入路由
 import router from './router'
+
+registerSW({ immediate: true })
 
 const app = createApp(App)
 

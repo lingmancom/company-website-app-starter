@@ -72,6 +72,11 @@ function handlePermissions(row) {
   showVisible.value = true
   getProjects()
 }
+
+watch(showVisible, (val) => {
+  if (!val)
+    loadData()
+})
 </script>
 
 <template>
