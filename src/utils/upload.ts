@@ -22,7 +22,7 @@ export function get_suffix(filename) {
 }
 
 export async function uploadFile(file: File): Promise<any> {
-  const resp = await service.get(`/api/public/presignedUrl/${file.name}`) as string
+  const resp = await service.get(`https://api-company.lingman.tech/api/storage/minio?type=hr&filename=${file.name}`) as string
   await fetch(resp, {
     method: 'PUT',
     body: file,
