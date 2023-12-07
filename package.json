@@ -8,7 +8,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
-    "prepare": "husky install",
+    "prepare": "vite optimize && husky install",
     "lint:fix": "eslint . --fix",
     "lint": "eslint ."
   },
