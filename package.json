@@ -21,7 +21,7 @@
     "element-plus": "^2.4.2",
     "file-saver": "^2.0.5",
     "image-conversion": "^2.1.1",
-    "lingman-web": "^1.0.1698908405",
+    "lingman-web": "^1.2.1701941574",
     "pinia": "^2.1.7",
     "pizzip": "^3.1.4",
     "qrcode.vue": "^3.4.1",
@@ -58,6 +58,7 @@
     "unplugin-vue-components": "^0.25.2",
     "vite": "4.5.0",
     "vite-plugin-pwa": "^0.16.7",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^1.8.22",
     "workbox-window": "^7.0.0"
   },

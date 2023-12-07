@@ -13,14 +13,22 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 import Inspector from '@djie/vite-plugin-vue-inspector'
 import { VitePWA } from 'vite-plugin-pwa'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+import { LingmanWebResolver } from 'lingman-web/resolvers'
+import LingMan from 'lingman-web/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    VueSetupExtend(),
     AutoImport({
       imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }],
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        LingmanWebResolver(),
+      ],
       dirs: [
         'src/api',
         'src/hooks',
@@ -62,13 +70,7 @@ export default defineConfig({
     }),
 
     Inspector(),
-    {
-      name: 'add_timestamp',
-      enforce: 'post',
-      async transformIndexHtml(html) {
-        return html.replace(/\$_config/, `/config.js?_t=${Date.now()}`)
-      },
-    },
+    LingMan(),
   ],
   base: './',
   root: process.cwd(),
