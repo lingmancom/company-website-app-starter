@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Userinfo from './Userinfo.vue'
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const isDev = import.meta.env.MODE === 'development'
 </script>
 

@@ -32,7 +32,7 @@ export default defineComponent({
       type: String,
     },
     options: {
-      type: Array<{ label: string; value: any; disabled?: boolean; children?: any[] }>,
+      type: Array<{ label: string, value: any, disabled?: boolean, children?: any[] }>,
       default: () => [{ label: '选项一', value: 1 }, { label: '选项二', value: 2 }] as any[],
     },
     type: {
@@ -95,7 +95,7 @@ export default defineComponent({
           emit('file', val[0])
       }
     })
-    const inputWidth = computed(() => isString(props.width) ? isNaN(Number(props.width)) ? props.width : `${props.width}px` : `${props.width}px`)
+    const inputWidth = computed(() => isString(props.width) ? Number.isNaN(Number(props.width)) ? props.width : `${props.width}px` : `${props.width}px`)
     const singleUploadAttrs = () => ({
       action: '#',
       showFileList: false,
@@ -129,8 +129,10 @@ export default defineComponent({
 
 <template>
   <div class="item-input">
-    <div class="star ml--8 shrink-0 w-110px" :class="!required ? 'before:opacity-0' : ''"
-      :style="{ width: `${titleWidth}px` }">
+    <div
+      class="star ml--8 shrink-0 w-110px" :class="!required ? 'before:opacity-0' : ''"
+      :style="{ width: `${titleWidth}px` }"
+    >
       {{ title ? `${title}:` : '' }}
     </div>
     <div class="right">
@@ -138,8 +140,10 @@ export default defineComponent({
         <div v-if="type === 'image' && !multiple" class="flex">
           <div v-if="inputVal" class="relative fc" :class="inputVal ? 'mr-10' : ''">
             <svg-icon name="Close" class="fwbold !absolute top-0 right-0 cp z-1" @click="inputVal = ''"></svg-icon>
-            <el-image v-if="inputVal" class="w50 h50 mr10" :src="inputVal" :hide-on-click-modal="true"
-              :preview-teleported="true" :preview-src-list="[inputVal]" />
+            <el-image
+              v-if="inputVal" class="w50 h50 mr10" :src="inputVal" :hide-on-click-modal="true"
+              :preview-teleported="true" :preview-src-list="[inputVal]"
+            />
           </div>
 
           <el-upload v-else v-bind="singleUploadAttrs()">
@@ -151,10 +155,14 @@ export default defineComponent({
 
         <div v-else-if="type === 'image' && multiple" class="flex">
           <div v-for="i, idx in inputVal" :key="idx" class="relative fc" :class="inputVal ? 'mr-10' : ''">
-            <svg-icon name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
-              @click="inputVal = [inputVal].flat().filter(c => c !== i)"></svg-icon>
-            <el-image class="w50 h50 mr10" :src="i" :hide-on-click-modal="true" :preview-teleported="true"
-              :preview-src-list="inputVal" />
+            <svg-icon
+              name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
+              @click="inputVal = [inputVal].flat().filter(c => c !== i)"
+            ></svg-icon>
+            <el-image
+              class="w50 h50 mr10" :src="i" :hide-on-click-modal="true" :preview-teleported="true"
+              :preview-src-list="inputVal"
+            />
           </div>
 
           <el-upload v-bind="singleUploadAttrs()">
@@ -166,8 +174,10 @@ export default defineComponent({
 
         <div v-else-if="type === 'file' && !multiple" class="flex h50">
           <div v-if="fileVal.length || inputVal" class="relative fc" :class="fileVal.length ? 'mr-10' : ''">
-            <svg-icon name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
-              @click="(fileVal = [], inputVal = '')"></svg-icon>
+            <svg-icon
+              name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
+              @click="(fileVal = [], inputVal = '')"
+            ></svg-icon>
             <span class="fwbold">{{ fileVal[0]?.value.name || inputVal }}</span>
           </div>
 
@@ -180,8 +190,10 @@ export default defineComponent({
 
         <div v-else-if="type === 'file' && multiple" class="flex h50">
           <div v-for="i, idx in [inputVal].flat()" :key="idx" class="relative fc" :class="fileVal ? 'mr-10' : ''">
-            <svg-icon name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
-              @click="inputVal = [inputVal].flat().filter(c => c !== i)"></svg-icon>
+            <svg-icon
+              name="Close" class="fwbold !absolute top-0 right-0 cp z-1"
+              @click="inputVal = [inputVal].flat().filter(c => c !== i)"
+            ></svg-icon>
             <span class="fwbold">{{ fileVal.find(f => f.key === i)?.value.name }}</span>
           </div>
 
@@ -192,32 +204,46 @@ export default defineComponent({
           </el-upload>
         </div>
 
-        <el-select v-else-if="type === 'select'" v-model="inputVal" :multiple="Array.isArray(inputVal)" v-bind="$attrs"
-          :style="{ width: inputWidth }" :placeholder="placeholder" @change="handleChange">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"
-            :disabled="item.disabled">
+        <el-select
+          v-else-if="type === 'select'" v-model="inputVal" :multiple="Array.isArray(inputVal)" v-bind="$attrs"
+          :style="{ width: inputWidth }" :placeholder="placeholder" @change="handleChange"
+        >
+          <el-option
+            v-for="item in options" :key="item.value" :label="item.label" :value="item.value"
+            :disabled="item.disabled"
+          >
           </el-option>
         </el-select>
 
-        <el-cascader v-else-if="type === 'cascader'" v-model="inputVal" :style="{ width: inputWidth }" v-bind="$attrs"
-          :options="options" :props="{ ...props }" @change="handleChange">
+        <el-cascader
+          v-else-if="type === 'cascader'" v-model="inputVal" :style="{ width: inputWidth }" v-bind="$attrs"
+          :options="options" :props="{ ...props }" @change="handleChange"
+        >
         </el-cascader>
 
-        <el-radio-group v-else-if="type === 'radio'" v-model="inputVal" :style="{ width: inputWidth }"
-          :placeholder="placeholder" v-bind="$attrs" @change="handleChange">
+        <el-radio-group
+          v-else-if="type === 'radio'" v-model="inputVal" :style="{ width: inputWidth }"
+          :placeholder="placeholder" v-bind="$attrs" @change="handleChange"
+        >
           <el-radio-button v-for="item in options" :key="item.value" :label="item.value" :disabled="item.disabled">
             {{ item.label }}
           </el-radio-button>
         </el-radio-group>
 
         <el-switch v-else-if="type === 'switch'" v-model="inputVal" v-bind="$attrs" />
-        <el-date-picker v-else-if="type === 'date'" v-model="inputVal" type="date" value-format="YYYY-MM-DD"
-          :placeholder="placeholder" v-bind="$attrs" />
-        <el-date-picker v-else-if="type === 'date_time'" v-model="inputVal" type="datetime" :placeholder="placeholder"
-          v-bind="$attrs" />
+        <el-date-picker
+          v-else-if="type === 'date'" v-model="inputVal" type="date" value-format="YYYY-MM-DD"
+          :placeholder="placeholder" v-bind="$attrs"
+        />
+        <el-date-picker
+          v-else-if="type === 'date_time'" v-model="inputVal" type="datetime" :placeholder="placeholder"
+          v-bind="$attrs"
+        />
 
-        <el-input v-else v-model="inputVal" :style="{ width: inputWidth }" :type="type" :placeholder="placeholder"
-          :autosize="autosize" v-bind="$attrs" :disabled="disabled" @change="handleChange">
+        <el-input
+          v-else v-model="inputVal" :style="{ width: inputWidth }" :type="type" :placeholder="placeholder"
+          :autosize="autosize" v-bind="$attrs" :disabled="disabled" @change="handleChange"
+        >
           <template v-if="suffix" #append>{{ suffix }}</template>
         </el-input>
       </slot>

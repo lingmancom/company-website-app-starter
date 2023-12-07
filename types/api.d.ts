@@ -3,12 +3,12 @@ interface ID {
 }
 
 interface UserInfo {
-  id: number;
-  name: string;
-  role: number;
-  avatar: string;
-  nick_name: string;
-  linkTags: string[];
+  id: number
+  name: string
+  role: number
+  avatar: string
+  nick_name: string
+  linkTags: string[]
 }
 
 interface Policy {
@@ -41,7 +41,7 @@ interface ApiLog {
   tag_ClientIp: string
   tag_ReceiveTime: string
   time: string
-  apiSenderName: String
+  apiSenderName: string
   apiException: string
   isException: boolean
   apiSenderId: string
@@ -49,7 +49,6 @@ interface ApiLog {
   apiPath: string
   ip: string
 }
-
 
 interface DatabaseModel {
   id: string

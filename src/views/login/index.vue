@@ -24,12 +24,14 @@ fetch(apiUrl, {
 })
   .then(response => response.json())
   .then((result) => {
+    // eslint-disable-next-line no-console
     console.log(result)
     if (result.code === 1) {
       localStorage.setItem('token', result.data)
       window.location.href = url as string
     }
     else {
+      // eslint-disable-next-line no-alert
       alert(result.message)
     }
   })

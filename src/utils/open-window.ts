@@ -1,8 +1,8 @@
 /**
  * @param {Sting} url
  * @param {Sting} title
- * @param {Number} w
- * @param {Number} h
+ * @param {number} w
+ * @param {number} h
  */
 export default function openWindow(url, title, w, h) {
   // Fixes dual-screen position                            Most browsers       Firefox

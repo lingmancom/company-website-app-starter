@@ -1,5 +1,6 @@
 {
   "name": "bdd_admin",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@7.5.0",

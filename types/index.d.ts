@@ -67,15 +67,14 @@ interface Ws<T> {
 }
 
 interface PageSettings {
-  page_size: number,
-  page_number: number,
-  q?: string,
+  page_size: number
+  page_number: number
+  q?: string
 }
-
 
 interface Pagination<T> {
   data: T[]
-  page_number: number,
-  page_size: number,
-  total_count: number,
+  page_number: number
+  page_size: number
+  total_count: number
 }

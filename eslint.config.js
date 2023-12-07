@@ -1,7 +1,3 @@
-const jie = require('@djie/eslint-config').default
+import jie from '@djie/eslint-config'
 
-module.exports = jie({
-  rules: {
-    'vue/html-self-closing': 'off',
-  },
-})
+export default jie()

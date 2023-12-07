@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ESNext",
     "jsx": "preserve",
     "lib": [
       "DOM",
       "ESNext"
     ],
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
@@ -21,12 +20,10 @@
     "types": [
       "element-plus/global"
     ],
-    "allowJs": true,
-    "strict": true,
+    "strict": false,
     "strictNullChecks": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
   "exclude": [
