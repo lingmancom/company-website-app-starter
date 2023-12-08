@@ -15,7 +15,7 @@ import Inspector from '@djie/vite-plugin-vue-inspector'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
-import { LingmanWebResolver } from 'lingman-web/resolvers'
+import { LingManWebAutoImport } from 'lingman-web/resolve'
 import LingMan from 'lingman-web/vite'
 
 // https://vitejs.dev/config/
@@ -24,10 +24,9 @@ export default defineConfig({
     vue(),
     VueSetupExtend(),
     AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }],
+      imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }, LingManWebAutoImport()],
       resolvers: [
         ElementPlusResolver(),
-        LingmanWebResolver(),
       ],
       dirs: [
         'src/api',
