@@ -1,6 +1,3 @@
-import { localRemove, localSet } from 'lingman-web'
-import { Api } from '@/api'
-
 export const CURRENT_PROJECT = 'CURRENT_PROJECT'
 export const PROJECTS = 'PROJECTS'
 

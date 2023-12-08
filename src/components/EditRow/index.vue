@@ -1,5 +1,4 @@
 <script lang="ts">
-import { isString } from 'lingman-web'
 import { uploadFile, uploadImgFile } from '@/utils/upload'
 
 const acceptMeta = {

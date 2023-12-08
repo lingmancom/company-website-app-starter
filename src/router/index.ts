@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { localGet } from 'lingman-web'
 import redirect from './modules/redirect'
 import error from './modules/error'
 import login from './modules/login'

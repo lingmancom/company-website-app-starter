@@ -1,5 +1,3 @@
-import { localGet, localSet } from 'lingman-web'
-
 export function useTableColumnFilter(key, customColumns) {
   const storeColumns = localGet(key)
   customColumns = customColumns.map(i => ({ ...i, show: true }))

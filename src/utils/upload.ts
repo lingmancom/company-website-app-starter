@@ -1,5 +1,4 @@
 import { compressAccurately } from 'image-conversion'
-import { service } from 'lingman-web'
 
 export function random_string(len?: number) {
   len = len || 32

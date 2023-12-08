@@ -1,4 +1,3 @@
-import { cfg, localGet, service } from 'lingman-web'
 import { toLogin } from './utils'
 
 cfg.getApiRoot = () => {

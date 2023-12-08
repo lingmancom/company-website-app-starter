@@ -1,5 +1,4 @@
 <script lang="ts">
-import { isMobileDevice } from 'lingman-web'
 import Topbar from './components/Topbar/index.vue'
 import ContentView from './components/Content/index.vue'
 import { useResizeHandler } from './hooks/useResizeHandler'

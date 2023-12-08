@@ -15,8 +15,8 @@ import Inspector from '@djie/vite-plugin-vue-inspector'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
-import { LingManWebAutoImport } from 'lingman-web/resolve'
-import LingMan from 'lingman-web/vite'
+import { LingManWebAutoImport } from 'lingman/resolve'
+import LingMan from 'lingman/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
