@@ -18,6 +18,15 @@ export default <AppRouterRaw[]>[
         },
       },
       {
+        path: '/project',
+        name: 'project',
+        component: () => import('@/views/project/project.vue'),
+        icon: 'House',
+        meta: {
+          title: '项目列表',
+        },
+      },
+      {
         path: '',
         name: 'home',
         component: () => import('@/views/home/index.vue'),

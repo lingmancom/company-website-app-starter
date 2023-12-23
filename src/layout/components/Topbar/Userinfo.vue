@@ -32,6 +32,9 @@ const whiteRoles = [1, 2]
         <el-dropdown-item v-if="whiteRoles.includes(userinfo?.role || 0)" @click="router.push({ name: 'user' })">
           用户列表
         </el-dropdown-item>
+        <el-dropdown-item v-if="whiteRoles.includes(userinfo?.role || 0)" @click="router.push({ name: 'project' })">
+          项目设置
+        </el-dropdown-item>
         <el-dropdown-item @click="logout">
           退出登录
         </el-dropdown-item>
