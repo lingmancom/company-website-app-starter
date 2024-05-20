@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 import process from 'node:process'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import legacy from '@vitejs/plugin-legacy'
+// import legacy from '@vitejs/plugin-legacy'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
 
@@ -15,7 +15,7 @@ import Inspector from '@djie/vite-plugin-vue-inspector'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
-import { LingManWebAutoImport } from 'lingman/resolve'
+import { LingManVueAutoImport } from 'lingman/vue'
 import LingMan from 'lingman/vite'
 
 // https://vitejs.dev/config/
@@ -24,7 +24,7 @@ export default defineConfig({
     vue(),
     VueSetupExtend(),
     AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }, LingManWebAutoImport()],
+      imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }, LingManVueAutoImport()],
       resolvers: [
         ElementPlusResolver(),
       ],
@@ -32,6 +32,7 @@ export default defineConfig({
         'src/api',
         'src/hooks',
         'src/store',
+        'src/composables',
       ],
       dts: true,
     }),
@@ -63,10 +64,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
     }),
 
-    legacy({
-      targets: ['> 1%, last 1 version, ie >= 11'],
-      additionalLegacyPolyfills: ['regenerator-runtime/runtime'], // 面向IE11时需要此插件
-    }),
+    // legacy({
+    //   targets: ['> 1%, last 1 version, ie >= 11'],
+    //   additionalLegacyPolyfills: ['regenerator-runtime/runtime'], // 面向IE11时需要此插件
+    // }),
 
     Inspector(),
     LingMan(),

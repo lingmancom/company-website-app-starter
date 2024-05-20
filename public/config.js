@@ -1,1 +1,1 @@
-window.__BASE_API = 'http://lm:11302'
+window.__BASE_API = 'https://api-task.lingman.tech'
